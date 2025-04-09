@@ -35,4 +35,11 @@ public class PersonaController {
         return ResponseEntity.ok(persona.get());
     }
 
+    @GetMapping("/nombre/{nombre}")
+    ResponseEntity<List<Persona>> getPersonasByNombre(@PathVariable String nombre){
+        List<Persona> personas = personaRepository.findByNombre(nombre);
+
+        return ResponseEntity.ok(personas);
+    }
+
 }
