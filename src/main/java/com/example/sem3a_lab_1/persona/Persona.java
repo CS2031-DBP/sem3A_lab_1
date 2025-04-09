@@ -1,11 +1,12 @@
 package com.example.sem3a_lab_1.persona;
 
+import com.example.sem3a_lab_1.artista.Artista;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "persona")
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,5 +17,9 @@ public class Persona {
 
     @Column(name = "apellido", unique = false)
     private String apellido;
+
+    @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Artista artista;
 
 }
