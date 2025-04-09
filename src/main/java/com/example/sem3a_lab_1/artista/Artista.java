@@ -15,6 +15,7 @@ public class Artista {
     String username;
 
     @OneToOne
+    @JoinColumn(name="persona_id")
     @JsonBackReference
     Persona persona;
 }

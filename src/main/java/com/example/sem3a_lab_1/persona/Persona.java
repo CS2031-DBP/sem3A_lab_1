@@ -19,6 +19,7 @@ public class Persona {
     private String apellido;
 
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL)
+    @JoinColumn(name = "artista_id")
     @JsonManagedReference
     private Artista artista;
 
